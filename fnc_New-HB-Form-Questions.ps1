@@ -6,8 +6,16 @@ function New-HB-Form-Question
 		[string]$question_id,
 		[string]$answer,
 		[string]$answer_value,
+
+		# Provide a list of field types
+		[Parameter (
+			Mandatory = $true,
+			ParameterSetName = 'field_type'
+		)]
+		[ValidateSet ('text', 'date', 'textarea')]
 		[string]$field_type,
-		[string]$entity_type
+
+		[string]$entity_type = "request"
 	)
 
 	$newObject = @{
